@@ -8,7 +8,7 @@ export class AitoleError extends Error {
     super(error?.message ?? `HTTP ${status}`);
     this.status = status;
     this.code = error?.code;
-    // transient — повторить, permanent — не повторять, auth — чинить доступ, rate_limit — подождать.
+    // temporary — повторить позже, permanent и validation — не повторять, auth — чинить доступ, rate_limit — подождать.
     this.category = error?.category;
     this.requestId = error?.request_id;
   }

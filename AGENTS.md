@@ -5,6 +5,7 @@
 - Полный справочник одним файлом: https://aitole.kz/docs/index.md
 - Плейбук интеграции для агента: https://aitole.kz/for-ai/
 - Сводка фактов о сервисе: https://aitole.kz/llms.txt
+- MCP-сервер: https://api.aitole.kz/mcp (Streamable HTTP, ключ в `Authorization: Bearer sk_…`)
 
 Правила, на которых чаще всего ошибаются:
 

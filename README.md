@@ -55,7 +55,7 @@ X-Webhook-Signature: sha256=<hex>
 ## Что важно знать до боя
 
 - `Idempotency-Key` обязателен для запросов, создающих платёж. Используйте номер заказа: при повторе запроса счёт не задвоится.
-- Ошибка всегда в одном формате: `{"error": {"code", "message", "category", "request_id"}}`. `category` подсказывает, что делать: `transient` — повторить, `permanent` — не повторять.
+- Ошибка всегда в одном формате: `{"error": {"code", "message", "category", "request_id"}}`. `category` подсказывает, что делать: `temporary` — повторить позже, `permanent` и `validation` — не повторять, а исправить запрос.
 - Kaspi может отказать с HTTP 200: тогда у операции `status: "failed"` и `failure_reason`. Проверяйте статус, а не только код ответа.
 - Для боевого ключа нужна касса Kaspi Pay и отдельный номер сотрудника с ролью «Кассир». Роль не умеет выводить деньги. Под этим номером нельзя входить в приложение Kaspi Pay: у Kaspi одна сессия на номер.
 
@@ -63,6 +63,7 @@ X-Webhook-Signature: sha256=<hex>
 
 - [Справочник API](https://aitole.kz/docs/) и [он же в markdown](https://aitole.kz/docs/index.md)
 - [Плейбук для ИИ-агента](https://aitole.kz/for-ai/): если интеграцию пишет Claude, ChatGPT или Cursor
+- [MCP-сервер](https://aitole.kz/docs/#mcp) `https://api.aitole.kz/mcp`: агент работает с платежами напрямую, без кода интеграции
 - [Есть ли API у Kaspi Pay и какие есть варианты](https://aitole.kz/kaspi-api/)
 - [Счёт Kaspi на номер клиента](https://aitole.kz/kaspi-schet-na-nomer/) · [Регулярные платежи](https://aitole.kz/kaspi-regulyarnye-platezhi/) · [Ссылка на оплату](https://aitole.kz/kaspi-ssylka-na-oplatu/)
 

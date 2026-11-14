@@ -21,7 +21,7 @@ class AitoleError(Exception):
         super().__init__(error.get("message") or f"HTTP {status}")
         self.status = status
         self.code = error.get("code")
-        # transient — повторить, permanent — не повторять, auth — чинить доступ, rate_limit — подождать.
+        # temporary — повторить позже, permanent и validation — не повторять, auth — чинить доступ, rate_limit — подождать.
         self.category = error.get("category")
         self.request_id = error.get("request_id")
 
