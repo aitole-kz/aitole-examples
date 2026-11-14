@@ -10,7 +10,7 @@
 2. Запустите весь путь оплаты: создать QR, «клиент оплатил», дождаться статуса `paid`.
 
 ```bash
-git clone https://github.com/OWNER/aitole-examples && cd aitole-examples
+git clone https://github.com/aitole-kz/aitole-examples && cd aitole-examples
 AITOLE_API_KEY=sk_test_… node node/quickstart.mjs
 ```
 
