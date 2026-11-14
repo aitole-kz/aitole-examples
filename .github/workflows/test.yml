@@ -1,0 +1,26 @@
+name: test
+
+# Проверка подписи вебхука во всех языках сверяется с одним вектором test/vector.json.
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Node.js
+        run: node --test node/verify.test.mjs
+      - name: Python
+        run: python3 -m unittest discover -s python -t python
+      - name: PHP
+        run: php php/verify_test.php
+      - name: Синтаксис примеров
+        run: |
+          for f in node/*.mjs; do node --check "$f"; done
+          python3 -m py_compile python/*.py
+          for f in php/*.php; do php -l "$f"; done
+          bash -n curl/quickstart.sh

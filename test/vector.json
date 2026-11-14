@@ -1,0 +1,6 @@
+{
+  "secret": "whsec_test_example_secret",
+  "timestamp": 1794650000,
+  "body": "{\"id\":\"evt_01HZX3Q8\",\"type\":\"payment.paid\",\"created_at\":\"2026-11-14T09:00:00.000Z\",\"data\":{\"id\":\"op_01HZX3PZ\",\"status\":\"paid\",\"amount\":4990,\"connection_id\":\"conn_01HZX3\"}}",
+  "signature": "sha256=52fb320471446c58bab8959aef890048343267d3bcb6eaf892c4806738655d3e"
+}
